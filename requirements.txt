@@ -1,0 +1,4 @@
+FastAPI==0.115.0
+pymupdf4llm==0.0.17
+
+
