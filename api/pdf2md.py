@@ -4,7 +4,7 @@ import os
 import uuid
 from fastapi import APIRouter, HTTPException
 
-from api.my_requests import Pdf2MdRequest
+from api.my_requests.Pdf2MdRequest import Pdf2MdRequest
 
 router = APIRouter()
 
