@@ -2,3 +2,4 @@ FastAPI==0.115.0
 pymupdf4llm==0.0.17
 uvicorn==0.31.0
 requests==2.32.3
+pydantic==2.9.2
