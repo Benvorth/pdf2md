@@ -17,9 +17,13 @@ async def convert_pdf_url_to_md(rq: Pdf2MdRequest):
 def do_convert(rq: Pdf2MdRequest):
 
     random_filename = f"{uuid.uuid4()}.pdf"
-    tmp_filename_and_path = os.path.join("/tmp/dl/", random_filename)
+    tmp_dir = "/tmp/dl/"
+    tmp_filename_and_path = os.path.join(tmp_dir, random_filename)
 
     try:
+        # Ensure the directory exists
+        os.makedirs(tmp_dir, exist_ok=True)
+
         # download pdf to local temp folder
         response = requests.get(rq.pdf_url)
         with open(tmp_filename_and_path, 'wb') as f:
