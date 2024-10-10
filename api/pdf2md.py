@@ -2,6 +2,7 @@ import pymupdf4llm
 import requests
 import os
 import uuid
+import json
 from fastapi import APIRouter, HTTPException
 
 from api.my_requests.Pdf2MdModel import Pdf2MdRequest
@@ -36,7 +37,7 @@ def do_convert(rq: Pdf2MdRequest):
         # clean up
         os.remove(tmp_filename_and_path)
 
-        return " ".join(the_texts)
+        return json.dumps(the_texts, ensure_ascii=False)
     except Exception as e:
         # Cleanup if an error occurs
         if os.path.exists(tmp_filename_and_path):

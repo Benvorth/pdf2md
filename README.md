@@ -9,7 +9,10 @@ This project wraps the `pymupdf4llm` lib in a RESTful microservice.
 ## Request
 
 ````
-POST /pdf2md/api/convert
+GET http://localhost:8081/pdf2md/api/common/alive/
+
+
+POST http://localhost:8081/pdf2md/api/convert
 body:
 {
     "pdf_url": "https://www.somepage.com/docs/the_file.pdf"
