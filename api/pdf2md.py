@@ -37,7 +37,9 @@ def do_convert(rq: Pdf2MdRequest):
         # clean up
         os.remove(tmp_filename_and_path)
 
-        return json.dumps(the_texts, ensure_ascii=False)
+        # FastAPI will automatically serialize Python data structures (like lists and dictionaries)
+        # into JSON format and set the appropriate Content-Type.
+        return the_texts
     except Exception as e:
         # Cleanup if an error occurs
         if os.path.exists(tmp_filename_and_path):
