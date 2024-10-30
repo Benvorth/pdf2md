@@ -31,7 +31,7 @@ def do_convert(rq: Pdf2MdRequest):
             f.write(response.content)
 
         # do extraction
-        md_texts = pymupdf4llm.to_markdown(tmp_filename_and_path, page_chunks=True)
+        md_texts = pymupdf4llm.to_markdown(tmp_filename_and_path, page_chunks=True, table_strategy="text")
         the_texts = [elem.get('text') for elem in md_texts]  # list of pages
 
         # clean up
